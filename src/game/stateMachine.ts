@@ -6,7 +6,7 @@ let sleepTimer: ReturnType<typeof setTimeout> | null = null;
 let happyTimer: ReturnType<typeof setTimeout> | null = null;
 
 export function updateState() {
-  const { state, setState, setTarget, x, y } = useGameStore.getState();
+  const { state, setState } = useGameStore.getState();
 
   switch (state) {
     case "wander": {
@@ -23,8 +23,6 @@ export function updateState() {
       const moving = moveToTarget();
 
       if (!moving) {
-        setTarget(x, y);
-
         setState("sleep");
 
         if (!sleepTimer) {
@@ -72,9 +70,20 @@ export function goToWindow() {
     return;
   }
 
-  setState("moveToWindow");
+  const windowEl = document.getElementById("window");
 
-  setTarget(700, 300);
+  if (!windowEl) return;
+
+  const rect = windowEl.getBoundingClientRect();
+
+  // 창문 중앙 좌표
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+
+  // 고양이 크기 보정
+  setTarget(centerX - 32, centerY - 32);
+
+  setState("moveToWindow");
 }
 
 export function triggerHappy() {

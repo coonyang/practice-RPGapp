@@ -8,10 +8,12 @@ export default function App() {
       <Character />
 
       <div
-        className="absolute border w-25 h-30 text-white p-4 cursor-pointer"
+        id="window"
+        className="absolute border text-white p-4 cursor-pointer
+             w-[18vw] h-[20vw] max-w-[100px] max-h-[120px]"
         style={{
-          left: 680,
-          top: 274,
+          left: "75%",
+          top: "35%",
         }}
         onClick={goToWindow}
       >

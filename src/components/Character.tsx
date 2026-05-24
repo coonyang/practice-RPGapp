@@ -43,7 +43,7 @@ export default function Character() {
         }}
       >
         <img
-          className="block w-16 h-16 object-contain"
+          className="block w-[clamp(48px,12vw,64px)] h-[clamp(48px,12vw,64px)] object-contain"
           onClick={triggerHappy}
           src={
             animation === "sleeping"

@@ -9,7 +9,7 @@ export function moveToTarget(speed = 0.6) {
 
   const distance = Math.sqrt(dx * dx + dy * dy);
 
-  const isMoving = distance > 1;
+  const isMoving = distance > 5;
 
   if (!isMoving) {
     return false;
