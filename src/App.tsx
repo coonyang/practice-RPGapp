@@ -9,7 +9,7 @@ export default function App() {
 
       <div
         id="window"
-        className="absolute border text-white p-4 cursor-pointer
+        className="absolute flex items-center justify-center item-ceter text-white p-2 cursor-pointer
              w-[18vw] h-[20vw] max-w-[100px] max-h-[120px]"
         style={{
           left: "75%",
